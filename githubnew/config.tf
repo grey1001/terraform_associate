@@ -5,7 +5,12 @@ terraform {
       source = "hashicorp/aws"
       version = ">= 4.60.0"
     }
+    github = {
+      source  = "integrations/github"
+      version = "~> 5.0"
+    }
   }
+
   backend "s3" {
     bucket         = "alora-statefile"
     key            = "global/mystatefile/terraform.tfstate"
@@ -15,14 +20,7 @@ terraform {
   }
 }
 
-terraform {
-  required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 5.0"
-    }
-  }
-}
+
 
 # Configure the GitHub Provider
 provider "github" {
