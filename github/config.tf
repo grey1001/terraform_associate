@@ -26,3 +26,9 @@ terraform {
 provider "github" {
     token =  var.token
 }
+
+provider "aws" {
+  region = "eu-west-3"
+  profile = "terraform"
+  
+}
