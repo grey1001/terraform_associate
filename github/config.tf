@@ -29,6 +29,5 @@ provider "github" {
 
 provider "aws" {
   region = "eu-west-3"
-  profile = "terraform"
-  
+  # profile = "terraform"
 }
