@@ -1,0 +1,5 @@
+vars.tf
+**/.terraform/*
+providers/
+.terraform.lock.hcl
+github/.terraform
