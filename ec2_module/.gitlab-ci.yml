@@ -1,5 +1,5 @@
 stages:
-  - terraform
+  - terraform pipeline
 
 variables:
   TF_CLI_ARGS: "-input=false"
@@ -7,7 +7,7 @@ variables:
   TF_BACKEND_CONFIG: "config.tf"
 
 terraform:
-  stage: terraform
+  stage: terraform pipeline
   script:
     - terraform fmt -check=true -recursive
     - terraform validate
@@ -20,4 +20,4 @@ terraform:
     name: production  # Set the environment name for GitLab's environment tracking
   tags:
     - server
-    - ec2  # Replace with your specific runner tag
+    - ec2 # Replace with your specific runner tag
