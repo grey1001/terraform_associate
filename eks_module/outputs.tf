@@ -23,3 +23,7 @@ output "oidc_provider" {
   value = module.eks.oidc_provider
 }
 
+# output "argocd_credentials" {
+#   value       = module.argocd.argocd
+#   description = "Argocd_Info"
+# }

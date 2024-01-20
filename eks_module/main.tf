@@ -73,7 +73,7 @@ module "eks" {
       max_size     = 4
       desired_size = 2
 
-      instance_types = ["t3.xlarge"]
+      instance_types = ["t3.medium"]
       capacity_type  = "ON_DEMAND"
 
 
@@ -166,6 +166,18 @@ module "eks-external-dns" {
 }
 
 
+
+
+module "kube_prometheus_stack" {
+  depends_on = [ module.eks ]
+  source = "sparkfabrik/prometheus-stack/sparkfabrik"
+
+  prometheus_stack_chart_version          = "31.0.0"
+  prometheus_adapter_chart_version        = "3.0.1"
+  namespace                               = "kube-prometheus-stack"
+  regcred                                 = "regcred-secret"
+
+}
 
 
 # module "eks_monitoring_logging" {
