@@ -1,0 +1,23 @@
+stages:
+  - terraform pipeline
+
+variables:
+  TF_CLI_ARGS: "-input=false"
+  TF_DIR: ${CI_PROJECT_DIR}/github/ec2_module
+  TF_BACKEND_CONFIG: "config.tf"
+
+terraform:
+  stage: terraform pipeline
+  script:
+    - terraform fmt -check=true -recursive
+    - terraform validate
+    - terraform init
+    - terraform plan -out=tfplan $TF_CLI_ARGS
+    - terraform apply tfplan $TF_CLI_ARGS
+  only:
+    - modules  # Run only on the master branch or adjust as needed
+  environment:
+    name: production  # Set the environment name for GitLab's environment tracking
+  tags:
+    - server
+    - ec2 # Replace with your specific runner tag
