@@ -86,6 +86,6 @@ variable "vpc_tags" {
 }
 
 variable "ingress_rules" {
-  type    = list(string)
-  default = ["https-443-tcp", "kibana-tcp", "jenkins-tcp"]
+  type = list(string)
+  default = ["all-all"]
 }
