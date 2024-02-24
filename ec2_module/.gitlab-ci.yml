@@ -16,8 +16,4 @@ terraform:
     - terraform apply tfplan $TF_CLI_ARGS
   only:
     - modules  # Run only on the master branch or adjust as needed
-  environment:
-    name: production  # Set the environment name for GitLab's environment tracking
-  tags:
-    - server
-    - ec2 # Replace with your specific runner tag
+   # Replace with your specific runner tag

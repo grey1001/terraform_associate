@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public_subnet" {
   count             = length(var.public_subnet_cidrs)
   vpc_id            = aws_vpc.main.id
-  availability_zone = var.subnet_cidr_az_map[element(var.private_subnet_cidrs, count.index)]
+  availability_zone = var.subnet_cidr_az_map[element(var.public_subnet_cidrs, count.index)]
   cidr_block        = element(var.public_subnet_cidrs, count.index)
   tags = merge(var.tags, {
     "ResourceType" = "PublicSubnet"

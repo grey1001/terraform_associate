@@ -32,9 +32,13 @@ variable "subnet_cidr_az_map" {
     "10.0.1.0/24" = "eu-west-3a",
     "10.0.2.0/24" = "eu-west-3b",
     "10.0.3.0/24" = "eu-west-3c",
+    "10.0.4.0/24" = "eu-west-3a",
+    "10.0.5.0/24" = "eu-west-3b",
+    "10.0.6.0/24" = "eu-west-3c",
     # Add more mappings as needed
   }
 }
+
 
 variable "public_subnet_tags_per_az" {
   type    = map(map(string))

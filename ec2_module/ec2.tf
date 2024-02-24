@@ -56,9 +56,9 @@ module "ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "5.6.0"
   ami     = "ami-01d21b7be69801c2f"
-  count   = 3
+  count   = 1
 
-  name = "Prod_instance-${count.index}"
+  name = "Ansible-${count.index}"
 
   instance_type          = "t2.micro"
   key_name               = "demo"
