@@ -1,32 +1,32 @@
 variable "azs" {
   type    = list(string)
-  default = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  default = ["eu-west-3a", "eu-west-3b", "eu-west-3c"]
 }
 
 
 variable "public_subnet_tags_per_az" {
   type = map(map(string))
   default = {
-    "us-east-1a" = {
+    "eu-west-3a" = {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
-      "Name"                               = "Eks_subnet1-public-us-east-1a"
+      "Name"                               = "Eks_subnet1-public-eu-west-3a"
       "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
 
       "kubernetes.io/role/elb"             = ""
     }
-    "us-east-1b" = {
+    "eu-west-3b" = {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
-      "Name"                               = "Eks_subnet2-public-us-east-1b"
+      "Name"                               = "Eks_subnet2-public-eu-west-3b"
       "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
 
       "kubernetes.io/role/elb"             = ""
     }
-    "us-east-1c" = {
+    "eu-west-3c" = {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
-      "Name"                               = "Eks_subnet3-public-us-east-1c"
+      "Name"                               = "Eks_subnet3-public-eu-west-3c"
       "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
 
       "kubernetes.io/role/elb"             = ""
@@ -36,26 +36,26 @@ variable "public_subnet_tags_per_az" {
 variable "private_subnet_tags_per_az" {
   type = map(map(string))
   default = {
-    "us-east-1a" = {
+    "eu-west-3a" = {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
-      "Name"                               = "Eks_subnet1-private-us-east-1a"
+      "Name"                               = "Eks_subnet1-private-eu-west-3a"
       "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
 
       "kubernetes.io/role/internal-elb"    = "1"
     }
-    "us-east-1b" = {
+    "eu-west-3b" = {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
-      "Name"                               = "Eks_subnet2-private-us-east-1b"
+      "Name"                               = "Eks_subnet2-private-eu-west-3b"
       "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
 
       "kubernetes.io/role/internal-elb"    = "1"
     }
-    "us-east-1c" = {
+    "eu-west-3c" = {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
-      "Name"                               = "Eks_subnet3-private-us-east-1c"
+      "Name"                               = "Eks_subnet3-private-eu-west-3c"
       "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
 
       "kubernetes.io/role/internal-elb"    = "1"
@@ -69,12 +69,12 @@ variable "cidr" {
 
 variable "public_subnets" {
   type    = list(string)
-  default = ["10.0.16.0/24", "10.0.17.0/24", "10.0.18.0/24"] # Adjusted to fit within 10.1.0.0/16
+  default = ["10.0.3.0/24", "10.0.3.0/24", "10.0.5.0/24"] # Adjusted to fit within 10.1.0.0/16
 }
 
 variable "private_subnets" {
   type    = list(string)
-  default = ["10.0.32.0/24", "10.0.33.0/24", "10.0.34.0/24"] # Adjusted to fit within 10.1.0.0/16
+  default = ["10.0.0.0/24", "10.0.1.0/24", "10.0.2.0/24"] # Adjusted to fit within 10.1.0.0/16
 }
 variable "aws_region" {
   type    = string
@@ -98,5 +98,5 @@ variable "vpc_tags" {
 
 variable "cluster_name" {
   type    = string
-  default = "eks-secondary-cluster-terraform"
+  default = "eks-primary-cluster-terraform"
 }

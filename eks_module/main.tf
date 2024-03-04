@@ -155,7 +155,7 @@ module "alb-ingress-controller" {
   depends_on   = [module.eks]
   source       = "campaand/alb-ingress-controller/aws"
   version      = "2.0.0"
-  controller_iam_role_name = "IRSA-EKSLoadBalancerControllerRole2"
+  controller_iam_role_name = "IRSA-EKSLoadBalancerControllerRole"
   cluster_name = module.eks.cluster_name
  
 }
@@ -165,7 +165,7 @@ module "eks-external-dns" {
   version                          = "1.2.0"
   cluster_identity_oidc_issuer     = module.eks.oidc_provider
   cluster_identity_oidc_issuer_arn = module.eks.oidc_provider_arn
-  irsa_role_name_prefix = "external-dns-irsa2"
+  irsa_role_name_prefix = "external-dns-irsa"
 }
 
 
