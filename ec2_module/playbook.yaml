@@ -1,0 +1,20 @@
+- hosts: all
+  remote_user: ubuntu
+  gather_facts: false
+  become: true 
+  vars:
+    ansible_port: 22
+    ansible_user: ubuntu
+    ansible_ssh_private_key_file: /home/grey/Desktop/demo.pem
+  tasks:
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+  - name: Install apache
+    apt:
+      name: apache2
+      state: latest
+  - name: create index.html
+    copy:
+      src: /home/grey/Desktop/ansible-course/index.html
+      dest: /var/www/html/index.html

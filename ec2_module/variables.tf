@@ -87,5 +87,5 @@ variable "vpc_tags" {
 
 variable "ingress_rules" {
   type = list(string)
-  default = ["all-all"]
+  default = ["ssh-tcp", "http-80-tcp","http-8080-tcp","https-443-tcp","https-8443-tcp"]
 }

@@ -42,7 +42,9 @@ module "security-group" {
   use_name_prefix     = true
   name                = "Prod-SG"
   vpc_id              = module.vpc.vpc_id
-  ingress_cidr_blocks = ["0.0.0.0/0"]
+  ingress_cidr_blocks = [
+  "0.0.0.0/0"
+  ]
 
   ingress_rules = var.ingress_rules
   egress_rules  = ["all-all"]
@@ -56,7 +58,7 @@ module "ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "5.6.0"
   ami     = "ami-01d21b7be69801c2f"
-  count   = 1
+  count   = 9
 
   name = "Ansible-${count.index}"
 
@@ -66,4 +68,16 @@ module "ec2-instance" {
   vpc_security_group_ids = [module.security-group.security_group_id]
   subnet_id              = module.vpc.public_subnets[0]
 
+}
+
+resource "null_resource" "my_instance" {
+  count = length(module.ec2-instance)
+
+  triggers = {
+    instance_id = module.ec2-instance[count.index].id
+  }
+
+#   provisioner "local-exec" {
+#     command = "sleep 120 && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook --private-key /home/grey/Desktop/demo.pem -i '${module.ec2-instance[count.index].public_ip}', playbook.yaml"
+#   }
 }

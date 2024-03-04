@@ -5,7 +5,6 @@ terraform {
       source  = "hashicorp/aws"
       version = ">= 4.60.0"
     }
-
   }
 
   backend "s3" {
@@ -15,4 +14,8 @@ terraform {
     region         = "eu-west-3"
     encrypt        = true
   }
+}
+
+provider "aws" {
+  region = "us-east-1"
 }
