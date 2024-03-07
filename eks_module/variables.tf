@@ -69,7 +69,7 @@ variable "cidr" {
 
 variable "public_subnets" {
   type    = list(string)
-  default = ["10.0.3.0/24", "10.0.3.0/24", "10.0.5.0/24"] # Adjusted to fit within 10.1.0.0/16
+  default = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"] # Adjusted to fit within 10.1.0.0/16
 }
 
 variable "private_subnets" {
@@ -78,7 +78,7 @@ variable "private_subnets" {
 }
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
+  default = "eu-west-3"
 }
 
 variable "tags" {
