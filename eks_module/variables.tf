@@ -11,7 +11,7 @@ variable "public_subnet_tags_per_az" {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
       "Name"                               = "Eks_subnet1-public-eu-west-3a"
-      "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
+      "kubernetes.io/cluster/eks-primary-cluster-terraform" = "owned"
 
       "kubernetes.io/role/elb"             = ""
     }
@@ -19,7 +19,7 @@ variable "public_subnet_tags_per_az" {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
       "Name"                               = "Eks_subnet2-public-eu-west-3b"
-      "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
+      "kubernetes.io/cluster/eks-primary-cluster-terraform" = "owned"
 
       "kubernetes.io/role/elb"             = ""
     }
@@ -27,7 +27,7 @@ variable "public_subnet_tags_per_az" {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
       "Name"                               = "Eks_subnet3-public-eu-west-3c"
-      "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
+      "kubernetes.io/cluster/eks-primary-cluster-terraform" = "owned"
 
       "kubernetes.io/role/elb"             = ""
     }
@@ -40,7 +40,7 @@ variable "private_subnet_tags_per_az" {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
       "Name"                               = "Eks_subnet1-private-eu-west-3a"
-      "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
+      "kubernetes.io/cluster/eks-primary-cluster-terraform" = "owned"
 
       "kubernetes.io/role/internal-elb"    = "1"
     }
@@ -48,7 +48,7 @@ variable "private_subnet_tags_per_az" {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
       "Name"                               = "Eks_subnet2-private-eu-west-3b"
-      "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
+      "kubernetes.io/cluster/eks-primary-cluster-terraform" = "owned"
 
       "kubernetes.io/role/internal-elb"    = "1"
     }
@@ -56,7 +56,7 @@ variable "private_subnet_tags_per_az" {
       "Environment"                        = "Production"
       "Owner"                              = "Creative"
       "Name"                               = "Eks_subnet3-private-eu-west-3c"
-      "kubernetes.io/cluster/eks-cluster-terraform" = "owned"
+      "kubernetes.io/cluster/eks-primary-cluster-terraform" = "owned"
 
       "kubernetes.io/role/internal-elb"    = "1"
     }
